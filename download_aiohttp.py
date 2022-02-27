@@ -7,12 +7,12 @@ async def download_coroutine(session, url):
     with async_timeout.timeout(10):
         async with session.get(url) as response:
             filename = __.path.basename(url)
-        with open (________, 'wb') as f_handle:
+        with open (filename, 'wb') as f_handle:
             while True:
                 chunk = await response.content.read(1024)
                 if not chunk:
                     break
-                f_handle.write(____)
+                f_handle.write(chunk)
             return await response.release()
 
 async def main(loop):
